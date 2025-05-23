@@ -1,0 +1,39 @@
+.header {
+    background-color: black;
+    padding: 1rem 0;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    gap: 2rem;
+}
+
+.nav-link {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-link a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-link a:hover {
+    text-decoration: underline;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
