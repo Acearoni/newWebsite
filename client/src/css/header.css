@@ -9,29 +9,35 @@
 
 .nav-bar {
     display: flex;
+    border: 2px solid pink;
+    width: 100%;
     justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
     gap: 2rem;
 }
 
 .nav-link {
-    flex: 1;
+    border: 1px solid green;
+    width: 150px;
+    height: 50px;
     display: flex;
+    align-self: center;
     justify-content: center;
+    /* centers text horizontally */
+    align-items: center;
+    /* centers text vertically */
 }
 
 .nav-link a {
-    color: white;
+    margin: 0;
+    padding: 0;
     text-decoration: none;
+    color: white;
     font-weight: bold;
 }
 
-.nav-link a:hover {
-    text-decoration: underline;
-}
+
 
 .title {
     font-size: 1.5rem;
