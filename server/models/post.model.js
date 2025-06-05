@@ -15,6 +15,10 @@ const PostSchema = new mongoose.Schema({
         enum: ['Local', 'Personal', 'Gaming', 'Socials'],
         required: [true, "Category is required"]
     },
+    snippet: {
+        type: String,
+        required: true
+    },
     image: {
         type: String // could be a URL or path to uploaded image
     }

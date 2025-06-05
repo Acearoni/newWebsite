@@ -3,7 +3,18 @@ const Post = require('../models/post.model');
 module.exports = {
     createPost: async (req, res) => {
         try {
-            const newPost = await Post.create(req.body);
+            const { title, content, category } = req.body;
+
+            // Generate a snippet: First 100 characters + ellipsis
+            const snippet = content.length > 100 ? content.slice(0, 100) + '...' : content;
+
+            const newPost = await Post.create({
+                title,
+                content,
+                category,
+                snippet
+            });
+
             res.status(201).json(newPost);
         } catch (err) {
             res.status(400).json(err);

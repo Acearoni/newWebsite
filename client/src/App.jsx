@@ -5,6 +5,7 @@ import Local from './views/Local';
 import Personal from './views/Personal';
 import Gaming from './views/Gaming';
 import Social from './views/Social';
+import SinglePost from './views/SinglePost';
 import './css/index.css'
 
 function App() {
@@ -18,6 +19,8 @@ function App() {
           <Route path="/personal" element={<Personal />} />
           <Route path="/gaming" element={<Gaming />} />
           <Route path="/socials" element={<Social />} />
+          <Route path="/posts/:id" element={<SinglePost />} />
+
         </Routes>
       </div>
       <footer>
