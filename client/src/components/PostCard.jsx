@@ -1,12 +1,13 @@
-// src/components/PostCard.jsx
 import { Link } from "react-router-dom";
+import '../css/post.css'
 
 const PostCard = ({ post }) => (
-    <Link to={`/posts/${post._id}`} className="block border rounded-lg p-4 hover:shadow-md transition">
-        <h3 className="text-xl font-semibold">{post.title}</h3>
-        <p className="text-gray-600">{post.snippet}</p>
-        {/* Optional image */}
-        {post.image && <img src={post.image} alt={post.title} className="mt-2 rounded-md" />}
+    <Link to={`/posts/${post._id}`} className="post-card-link">
+        <h3 className="post-card-title">{post.title}</h3>
+        <p className="post-card-snippet">{post.snippet}</p>
+        {post.image && (
+            <img src={post.image} alt={post.title} className="post-card-image" />
+        )}
     </Link>
 );
 

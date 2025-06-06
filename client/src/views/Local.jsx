@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import PostCard from "../components/PostCard";
+import '../App.css'
 
 const Local = () => {
     const [posts, setPosts] = useState([]); // ✅ Initialized as an array
@@ -16,11 +17,14 @@ const Local = () => {
     }, []);
 
     return (
-        <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-4">
-            {posts.map((post) => (
-                <PostCard key={post._id} post={post} />
-            ))}
-        </div>
+        <>
+            <h1>Local Posts</h1>
+            <div className="post-grid">
+                {posts.map((post) => (
+                    <PostCard key={post._id} post={post} />
+                ))}
+            </div>
+        </>
     );
 };
 

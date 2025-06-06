@@ -1,0 +1,14 @@
+.post-grid {
+    padding: 1.5rem;
+    /* same as p-6 in Tailwind */
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    border: 1px solid green
+}
+
+@media (min-width: 768px) {
+    .post-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
