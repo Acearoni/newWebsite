@@ -12,7 +12,7 @@ const PostSchema = new mongoose.Schema({
     },
     category: {
         type: String,
-        enum: ['Local', 'Personal', 'Gaming', 'Socials'],
+        enum: ['Local', 'Personal', 'Gaming', 'Social'],
         required: [true, "Category is required"]
     },
     snippet: {
