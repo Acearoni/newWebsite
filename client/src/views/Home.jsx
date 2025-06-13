@@ -18,7 +18,7 @@ const Home = () => {
 
     return (
         <>
-            <h1 to>Welcome To The Blog</h1>
+            <h1>Welcome To The Blog</h1>
             <div className="post-grid">
                 {posts.map((post) => (
                     <PostCard key={post._id} post={post} />

@@ -4,7 +4,9 @@ const mongoose = require('mongoose');
 const PostSchema = new mongoose.Schema({
     title: {
         type: String,
-        required: [true, "Title is required"]
+        required: [true, "Title is required"],
+        minLength: [10, "Title must be at least 10 characters long"],
+        maxLength: [30, "Title must not exceed 30 characters long"]
     },
     content: {
         type: String,

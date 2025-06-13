@@ -5,4 +5,5 @@ module.exports = app => {
     app.get('/api/posts', PostController.getAllPosts); // public
     app.get('/api/posts/:id', PostController.getOnePost); // view one
     app.get('/api/posts/category/:category', PostController.getPostsByCategory); // for filtered tabs
+    app.delete('/api/posts/:id', PostController.deletePost);
 };
