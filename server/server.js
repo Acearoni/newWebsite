@@ -4,6 +4,7 @@ const cors = require('cors')
 
 app.use(cors())
 app.use(express.json(), express.urlencoded({ extended: true }))
+app.use('/uploads', express.static('uploads'));
 
 //runs the config file that already connects to mongoDB
 require('./config/mongoose.config')

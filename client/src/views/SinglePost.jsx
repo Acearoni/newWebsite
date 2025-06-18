@@ -15,13 +15,15 @@ const SinglePost = () => {
     }, [id]);
 
     if (!post) return <p>Loading...</p>;
+    
+    console.log("Image path:", post.image);
 
     return (
         <div className="single-post-container">
             <h1 className="single-post-title">{post.title}</h1>
             {post.image && (
                 <img
-                    src={post.image}
+                    src={`http://localhost:8000${post.image}`}
                     alt={post.title}
                     className="single-post-image"
                 />

@@ -5,14 +5,15 @@ module.exports = {
         try {
             const { title, content, category } = req.body;
 
-            // Generate a snippet: First 100 characters + ellipsis
             const snippet = content.length > 100 ? content.slice(0, 100) + '...' : content;
+            const image = req.file ? `/uploads/${req.file.filename}` : null;
 
             const newPost = await Post.create({
                 title,
                 content,
                 category,
-                snippet
+                snippet,
+                image,
             });
 
             res.status(201).json(newPost);
