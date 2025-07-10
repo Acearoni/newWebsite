@@ -10,25 +10,51 @@ const CreatePost = () => {
     const [content, setContent] = useState("");
     const [category, setCategory] = useState("");
     const [errors, setErrors] = useState({});
+    const [image, setImage] = useState(null);
+
+    // const submitHandler = (e) => {
+    //     e.preventDefault()
+    //     const newPost = { title, content, category }
+    //     axios.post('http://localhost:8000/api/posts', newPost)
+    //         .then((response) => {
+    //             console.log(response)
+    //             navigate('/')
+    //         })
+    //         .catch((err) => {
+    //             console.log(err.response.data.errors)
+    //             setErrors(err.response.data.errors)
+    //         })
+    // }
 
     const submitHandler = (e) => {
-        e.preventDefault()
-        const newPost = { title, content, category }
-        axios.post('http://localhost:8000/api/posts', newPost)
+        e.preventDefault();
+
+        const formData = new FormData();
+        formData.append("title", title);
+        formData.append("content", content);
+        formData.append("category", category);
+        if (image) {
+            formData.append("image", image);
+        }
+
+        axios.post('http://localhost:8000/api/posts', formData)
             .then((response) => {
-                console.log(response)
-                navigate('/')
+                console.log(response);
+                navigate('/');
             })
             .catch((err) => {
-                console.log(err.response.data.errors)
-                setErrors(err.response.data.errors)
-            })
-    }
+                if (err.response && err.response.data.errors) {
+                    setErrors(err.response.data.errors);
+                } else {
+                    console.log(err);
+                }
+            });
+    };
 
     return (
         <div>
             <h1>Post Creation For Self</h1>
-            <form onSubmit={submitHandler}>
+            <form onSubmit={submitHandler} encType="multipart/form-data">
                 <label>Title:</label>
                 <input type='text' onChange={(e) => setTitle(e.target.value)} value={title}></input>
                 {
@@ -54,6 +80,13 @@ const CreatePost = () => {
                     <option value="Gaming">Gaming</option>
                     <option value="Socials">Socials</option>
                 </select>
+
+                <label>Image:</label>
+                <input
+                    type="file"
+                    accept="image/*"
+                    onChange={(e) => setImage(e.target.files[0])}
+                />
 
                 <button>SUBMIT POST</button>
             </form>
