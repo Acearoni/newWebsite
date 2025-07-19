@@ -17,13 +17,16 @@
     }
 
     .single-post-image {
-        border-radius: 0.5rem;
-        /* rounded = 0.5rem = 8px */
-        margin-bottom: 1rem;
-        /* mb-4 = 1rem */
-        max-width: 100%;
-        height: auto;
+        width: 800px;
+        /* force width */
+        height: 400px;
+        /* force height */
+        object-fit: cover;
+        /* crops excess parts to fill the box */
+        border-radius: 8px;
+        /* optional */
     }
+
 
     .single-post-content {
         font-size: 1.125rem;

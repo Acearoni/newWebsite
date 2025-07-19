@@ -5,7 +5,7 @@ module.exports = {
         try {
             const { title, content, category } = req.body;
 
-            const snippet = content.length > 100 ? content.slice(0, 100) + '...' : content;
+            const snippet = content.length > 30 ? content.slice(0, 30) + '...' : content;
             const image = req.file ? `/uploads/${req.file.filename}` : null;
 
             const newPost = await Post.create({

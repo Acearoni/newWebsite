@@ -8,6 +8,7 @@ import Social from './views/Social';
 import SinglePost from './views/SinglePost';
 import CreatePost from './components/CreatePost';
 import './css/index.css'
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -24,9 +25,7 @@ function App() {
           <Route path="/createPost" element={<CreatePost/>}/>
         </Routes>
       </div>
-      <footer>
-        © 2025 My Blog — Links coming soon
-      </footer>
+      <Footer/>
     </div>
   );
 }

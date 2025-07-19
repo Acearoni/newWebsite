@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import '../css/create.css';
 
 const CreatePost = () => {
 
@@ -12,21 +13,8 @@ const CreatePost = () => {
     const [errors, setErrors] = useState({});
     const [image, setImage] = useState(null);
 
-    // const submitHandler = (e) => {
-    //     e.preventDefault()
-    //     const newPost = { title, content, category }
-    //     axios.post('http://localhost:8000/api/posts', newPost)
-    //         .then((response) => {
-    //             console.log(response)
-    //             navigate('/')
-    //         })
-    //         .catch((err) => {
-    //             console.log(err.response.data.errors)
-    //             setErrors(err.response.data.errors)
-    //         })
-    // }
-
     const submitHandler = (e) => {
+        console.log('Submit Handler Triggered ✅');
         e.preventDefault();
 
         const formData = new FormData();
@@ -52,25 +40,17 @@ const CreatePost = () => {
     };
 
     return (
-        <div>
+        <div className="create-post-container">
             <h1>Post Creation For Self</h1>
-            <form onSubmit={submitHandler} encType="multipart/form-data">
-                <label>Title:</label>
-                <input type='text' onChange={(e) => setTitle(e.target.value)} value={title}></input>
-                {
-                    errors.title ?
-                        <p>{errors.title.message}</p> :
-                        null
-                }
+            <form onSubmit={submitHandler} encType="multipart/form-data" className="create-post-form">
 
+                <label>Title:</label>
+                <input type="text" onChange={(e) => setTitle(e.target.value)} value={title} />
+                {errors.title && <p className="error-text">{errors.title.message}</p>}
 
                 <label>Content:</label>
-                <textarea type='text' onChange={(e) => setContent(e.target.value)} value={content}></textarea>
-                {
-                    errors.content ?
-                        <p>{errors.content.message}</p> :
-                        null
-                }
+                <textarea onChange={(e) => setContent(e.target.value)} value={content} />
+                {errors.content && <p className="error-text">{errors.content.message}</p>}
 
                 <label>Category:</label>
                 <select onChange={(e) => setCategory(e.target.value)} value={category}>
@@ -78,7 +58,7 @@ const CreatePost = () => {
                     <option value="Local">Local</option>
                     <option value="Personal">Personal</option>
                     <option value="Gaming">Gaming</option>
-                    <option value="Socials">Socials</option>
+                    <option value="Social">Socials</option>
                 </select>
 
                 <label>Image:</label>
@@ -88,7 +68,7 @@ const CreatePost = () => {
                     onChange={(e) => setImage(e.target.files[0])}
                 />
 
-                <button>SUBMIT POST</button>
+                <button type="submit">SUBMIT POST</button>
             </form>
         </div>
     );

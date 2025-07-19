@@ -4,7 +4,7 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 1rem;
-    border: 1px solid green
+    /* border: 1px solid green; */
 }
 
 @media (min-width: 768px) {

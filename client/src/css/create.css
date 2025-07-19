@@ -1,0 +1,50 @@
+.create-post-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border: 2px solid lightgreen;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.create-post-container h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.create-post-form label {
+    display: block;
+    font-weight: bold;
+    margin: 0.5rem 0 0.25rem;
+}
+
+.create-post-form input,
+.create-post-form textarea,
+.create-post-form select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.create-post-form button {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: lightgreen;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.create-post-form button:hover {
+    background-color: #78c278;
+}
+
+.error-text {
+    color: red;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
