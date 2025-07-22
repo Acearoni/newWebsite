@@ -9,6 +9,8 @@ import SinglePost from './views/SinglePost';
 import CreatePost from './components/CreatePost';
 import './css/index.css'
 import Footer from './components/Footer';
+import Login from './components/Login';
+
 
 function App() {
   return (
@@ -23,6 +25,7 @@ function App() {
           <Route path="/socials" element={<Social />} />
           <Route path="/posts/:id" element={<SinglePost />} />
           <Route path="/createPost" element={<CreatePost/>}/>
+          <Route path='/login' element={<Login/>}/>
         </Routes>
       </div>
       <Footer/>

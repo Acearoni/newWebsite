@@ -7,7 +7,7 @@ const Footer = () => {
             <p>© 2025 My Blog — All Rights Reserved</p>
             <div className='social-links'>
                 <a href="https://twitter.com/Acearoni" target="_blank" rel="noopener noreferrer">
-                    TWITTER
+                    X
                 </a>
                 <a href="https://twitch.tv/Acearoni" target="_blank" rel="noopener noreferrer">
                     TWITCH

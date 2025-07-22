@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../css/create.css';
+
 
 const CreatePost = () => {
 
@@ -25,7 +26,11 @@ const CreatePost = () => {
             formData.append("image", image);
         }
 
-        axios.post('http://localhost:8000/api/posts', formData)
+        axios.post('http://localhost:8000/api/posts', formData, {
+            headers: {
+                'Authorization': localStorage.getItem('token')
+            }
+        })
             .then((response) => {
                 console.log(response);
                 navigate('/');
@@ -38,6 +43,16 @@ const CreatePost = () => {
                 }
             });
     };
+
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            alert('Unauthorized access — redirecting to home.');
+            navigate('/');
+        }
+    }, []);
+
 
     return (
         <div className="create-post-container">

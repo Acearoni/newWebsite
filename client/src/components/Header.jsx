@@ -1,7 +1,10 @@
 import { NavLink } from 'react-router-dom';
+import LogoutButton from './LogoutButton';
 import '../css/header.css';
 
 const Header = () => {
+    const token = localStorage.getItem('token');
+
     return (
         <header className="header">
             <nav className="nav-bar">
@@ -12,17 +15,21 @@ const Header = () => {
                     PERSONAL
                 </NavLink>
                 <h1 className="title">
-                    <NavLink to="/" className="home-render">OOZE TO ME</NavLink>
+                    <NavLink to="/" className="nav-link">THE BLOG</NavLink>
                 </h1>
                 <NavLink to="/gaming" className={({ isActive }) => isActive ? "nav-link active-tab" : "nav-link"}>
                     GAMING
                 </NavLink>
                 <NavLink to="/socials" className={({ isActive }) => isActive ? "nav-link active-tab" : "nav-link"}>
-                    SOCIALS
+                    SOCIAL
                 </NavLink>
+
+                {token && <LogoutButton />}
             </nav>
         </header>
     );
 };
 
 export default Header;
+
+
