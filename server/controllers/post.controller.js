@@ -1,4 +1,6 @@
 const Post = require('../models/post.model');
+const fs = require('fs');
+const path = require('path');
 
 module.exports = {
     createPost: async (req, res) => {
@@ -51,13 +53,21 @@ module.exports = {
 
     deletePost: async (req, res) => {
         try {
-            const deletedPost = await Post.findByIdAndDelete(req.params.id);
-            if (!deletedPost) {
-                return res.status(404).json({ message: "Post not found" });
+            const post = await Post.findByIdAndDelete(req.params.id);
+
+            if (!post) return res.status(404).json({ message: "Post not found" });
+
+            // If post has an image, delete it from the uploads folder
+            if (post.image) {
+                const imagePath = path.join(__dirname, '..', post.image);
+                fs.unlink(imagePath, (err) => {
+                    if (err) console.log('Error deleting image:', err);
+                });
             }
-            res.status(200).json({ message: "Post deleted successfully" });
+
+            res.json({ message: "Post and image deleted successfully" });
         } catch (err) {
-            res.status(500).json({ error: err.message });
+            res.status(500).json(err);
         }
     },
 };
