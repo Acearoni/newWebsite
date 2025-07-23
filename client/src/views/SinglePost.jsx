@@ -2,6 +2,8 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "../css/post.css";
+import DeleteButton from '../components/DeleteButton';
+
 
 const SinglePost = () => {
     const { id } = useParams();
@@ -15,7 +17,7 @@ const SinglePost = () => {
     }, [id]);
 
     if (!post) return <p>Loading...</p>;
-    
+
     console.log("Image path:", post.image);
 
     return (
@@ -29,8 +31,15 @@ const SinglePost = () => {
                 />
             )}
             <p className="single-post-content">{post.content}</p>
+
+            {localStorage.getItem('token') && (
+                <DeleteButton postId={post._id} />
+            )}
         </div>
+
     );
 };
+
+
 
 export default SinglePost;
